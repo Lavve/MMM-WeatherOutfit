@@ -4,7 +4,7 @@ Module.register('MMM-WeatherOutfit', {
   notificationReceived: function (notification, payload, sender) {
     if (notification === 'CALENDAR_EVENTS') {
       this.weather = payload;
-      console.log(this.weather);
+      console.log('CALENDAR_EVENTS', this.weather);
     }
   },
 
