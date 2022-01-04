@@ -2,9 +2,9 @@ Module.register('MMM-WeatherOutfit', {
   defaults: {},
 
   notificationReceived: function (notification, payload, sender) {
-    if (notification === 'CALENDAR_EVENTS') {
+    if (notification === 'CURRENTWEATHER_TYPE') {
       this.weather = payload;
-      console.log('CALENDAR_EVENTS', this.weather);
+      console.log('CURRENTWEATHER_TYPE', this.weather);
     }
   },
 
