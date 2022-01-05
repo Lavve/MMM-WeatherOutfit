@@ -1,0 +1,14 @@
+{
+	"waiting": "Väntar på vädret...",
+	"pre": "Ta på dig",
+	"<2": "en varm jacka, kofta, mössa, vantar och halsduk",
+	"2-10": "en varm jacka, kofta och vantar",
+	"10-15": "en tunn jacka med en varm kofta under, och långbyxor",
+	"15-20": "långbyxor och t-shirt",
+	"20-25": "shorts och t-shirt",
+	"25>": "badbyxor",
+	"post": "om du ska gå ut.",
+	"umbrella": "Och glöm inte paraplyet!",
+	"windy_umbrella": "Det regnar, men paraplyet kommer blåsa bort!",
+	"snow": "Och glöm inte pulkan!"
+}
