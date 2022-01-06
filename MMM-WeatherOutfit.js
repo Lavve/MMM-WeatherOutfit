@@ -19,7 +19,6 @@ Module.register('MMM-WeatherOutfit', {
   notificationReceived: function (notification, payload, sender) {
     if (notification === 'CURRENTWEATHER') {
       this.weather = payload.type.currentWeatherObject;
-
       this.updateDom(0);
     }
   },
@@ -29,7 +28,8 @@ Module.register('MMM-WeatherOutfit', {
     let outfit = '';
 
     if (this.hasOwnProperty('weather')) {
-      console.log(this.name.toUpperCase(), this.weather);
+      Log.info(this.name.toUpperCase(), this.weather);
+
       const temp = (this.weather.temperature + this.weather.feelsLikeTemp) / 2;
       const wind =
         this.weather.windUnits === 'metric'
@@ -37,6 +37,8 @@ Module.register('MMM-WeatherOutfit', {
             ? this.weather.windSpeed * 0.277778
             : this.weather.windSpeed
           : this.weather.windSpeed * 0.44704;
+
+      Log.info(temp, wind);
 
       outfit += this.translate('pre') + ' ';
 
@@ -72,7 +74,6 @@ Module.register('MMM-WeatherOutfit', {
 
       return div;
     }
-
     div.innerHTML = this.translate('waiting');
     div.classList.add('dimmed');
 
