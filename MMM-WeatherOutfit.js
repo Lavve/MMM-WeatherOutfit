@@ -1,5 +1,16 @@
+/* WeatherOutfit - Presents appropriate outfit depending on current outside temperature */
+
+/* Magic Mirror
+ * Module: WeatherOutfit
+ *
+ * By Magnus Claesson https://github.com/Lavve
+ * MIT Licensed.
+ */
+
 Module.register('MMM-WeatherOutfit', {
-  defaults: {},
+  defaults: {
+    topic: '',
+  },
 
   start: function () {
     Log.info('Starting module: ' + this.name);
@@ -17,9 +28,12 @@ Module.register('MMM-WeatherOutfit', {
   },
 
   notificationReceived: function (notification, payload, sender) {
-    if (notification === 'CURRENTWEATHER') {
-      this.weather = payload.type.currentWeatherObject;
-      this.updateDom(0);
+    if (
+      notification === 'MQTT_MESSAGE_RECEIVED' &&
+      payload.topic === this.config.topic
+    ) {
+      this.temperature = payload.value;
+      this.updateDom(250);
     }
   },
 
@@ -27,30 +41,18 @@ Module.register('MMM-WeatherOutfit', {
     const div = document.createElement('div');
     let outfit = '';
 
-    if (this.hasOwnProperty('weather')) {
-      Log.info(this.name.toUpperCase(), this.weather);
-
-      const temp = (this.weather.temperature + this.weather.feelsLikeTemp) / 2;
-      const wind =
-        this.weather.windUnits === 'metric'
-          ? this.weather.useKmh
-            ? this.weather.windSpeed * 0.277778
-            : this.weather.windSpeed
-          : this.weather.windSpeed * 0.44704;
-
-      Log.info(temp, wind);
-
+    if (this.hasOwnProperty('temperature')) {
       outfit += this.translate('pre') + ' ';
 
-      if (temp >= 2) {
+      if (this.temperature >= 1) {
         outfit += this.translate('2-10');
-      } else if (temp >= 10) {
+      } else if (this.temperature >= 10) {
         outfit += this.translate('10-15');
-      } else if (temp >= 15) {
+      } else if (this.temperature >= 15) {
         outfit += this.translate('15-20');
-      } else if (temp >= 20) {
+      } else if (this.temperature >= 20) {
         outfit += this.translate('20-25');
-      } else if (temp >= 25) {
+      } else if (this.temperature >= 25) {
         outfit += this.translate('25>');
       } else {
         outfit += this.translate('<2');
@@ -58,24 +60,14 @@ Module.register('MMM-WeatherOutfit', {
 
       outfit += ' ' + this.translate('post');
 
-      if (this.weather.rain) {
-        if (wind < 5) {
-          outfit += ' ' + this.translate('umbrella');
-        } else {
-          outfit += ' ' + this.translate('windy_umbrella');
-        }
-      }
-      if (this.weather.snow) {
-        outfit += ' ' + this.translate('snow');
-      }
-
-      div.innerHTML = outfit;
       div.classList.add('bright');
+      div.innerHTML = outfit;
 
       return div;
     }
-    div.innerHTML = this.translate('waiting');
+
     div.classList.add('dimmed');
+    div.innerHTML = this.translate('waiting');
 
     return div;
   },

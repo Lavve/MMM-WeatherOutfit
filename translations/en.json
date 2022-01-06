@@ -1,14 +1,11 @@
 {
-	"waiting": "Waiting for the weather...",
+	"waiting": "Waiting for the temperature...",
 	"pre": "Wear",
-	"<2": "a warm coat, warm sweater, hat, gloves and a scarf",
+	"<1": "a warm coat, warm sweater, hat, gloves and a scarf",
 	"2-10": "a warm coat, sweater and gloves",
-	"10-15": "a jacket with a warm sweater and long pants",
-	"15-20": "long pants and a t-shirt",
+	"10-15": "a jacket with a warm sweater and pants",
+	"15-20": "pants and a t-shirt and bring a sweater",
 	"20-25": "shorts and a t-shirt",
 	"25>": "swim suit",
-	"post": "if you're going outside.",
-	"umbrella": "And don't forget the umbrella!",
-	"windy_umbrella": "It's raining, but the umbrella will blow away!",
-	"snow": "And don't forget the sledge!"
+	"post": "if you're going outside."
 }
