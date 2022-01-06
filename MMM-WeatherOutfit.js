@@ -45,17 +45,17 @@ Module.register('MMM-WeatherOutfit', {
       outfit += this.translate('pre') + ' ';
 
       if (this.temperature >= 1) {
-        outfit += this.translate('2-10');
+        outfit += this.translate('1-10');
       } else if (this.temperature >= 10) {
-        outfit += this.translate('10-15');
+        outfit += this.translate('10-14');
       } else if (this.temperature >= 15) {
-        outfit += this.translate('15-20');
+        outfit += this.translate('15-19');
       } else if (this.temperature >= 20) {
-        outfit += this.translate('20-25');
+        outfit += this.translate('20-24');
       } else if (this.temperature >= 25) {
         outfit += this.translate('25>');
       } else {
-        outfit += this.translate('<2');
+        outfit += this.translate('<1');
       }
 
       outfit += ' ' + this.translate('post');

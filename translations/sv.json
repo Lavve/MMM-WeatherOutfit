@@ -2,10 +2,10 @@
 	"waiting": "Väntar på temperaturen...",
 	"pre": "Ta på dig",
 	"<1": "en varm jacka, kofta, mössa, vantar och halsduk",
-	"2-10": "en varm jacka, kofta och vantar",
-	"10-15": "jacka med kofta under och byxor",
-	"15-20": "byxor och t-shirt, och ta med en kofta",
-	"20-25": "shorts och t-shirt",
+	"1-10": "en varm jacka, kofta och vantar",
+	"10-14": "jacka med kofta under och byxor",
+	"15-19": "byxor och t-shirt, och ta med en kofta",
+	"20-24": "shorts och t-shirt",
 	"25>": "badbyxor",
 	"post": "om du ska gå ut."
 }
