@@ -45,7 +45,7 @@ Module.register('MMM-WeatherOutfit', {
       outfit += this.translate('pre') + ' ';
 
       if (this.temperature >= 1) {
-        outfit += this.translate('1-10');
+        outfit += this.translate('1-9');
       } else if (this.temperature >= 10) {
         outfit += this.translate('10-14');
       } else if (this.temperature >= 15) {
